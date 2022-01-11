@@ -1,7 +1,20 @@
 <app-breadcrumb [icon]="'fa-chart-line'" [title]="'Portal Apps'" [items]=""></app-breadcrumb>
 <div class="app-content-inner">
-    <div class="application-content" *ngIf="varAplicacion?.length != 0">
-        <div *ngFor="let item of varAplicacion" class="application-card">
+    <div class="title-row">RED EXTERNA WEB</div>
+    <div class="application-content" *ngIf="varAplicacionExterna?.length != 0">
+        <div *ngFor="let item of varAplicacionExterna" class="application-card">
+            <div class="application-logo">
+                <a href={{item.url}} target="_blank"><img [src]="item.logo"></a>
+            </div>
+            <div class="application-name">{{item.nombre}}</div>
+        </div>
+    </div>
+
+    <div class="line-home-col"></div>
+
+    <div class="title-row">RED INTERNA FAC</div>
+    <div class="application-content" *ngIf="varAplicacionInterna?.length != 0">
+        <div *ngFor="let item of varAplicacionInterna" class="application-card">
             <div class="application-logo">
                 <a href={{item.url}} target="_blank"><img [src]="item.logo"></a>
             </div>

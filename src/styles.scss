@@ -143,7 +143,7 @@ a {
 
     .app-content-inner {
         flex: 1;
-        padding: 20px;
+        padding: 0px 20px;
     }
 }
 
@@ -1614,6 +1614,13 @@ textarea {
     .btn-arrows:first-child {
         margin-bottom: 10px;
     }
+}
+
+.line-home-col {
+    border-bottom: 3px dotted var(--color-blueblack);
+    float: left;
+    width: 100%;
+    margin: 15px 0px;
 }
 
 @media screen and (max-width: 480px) {

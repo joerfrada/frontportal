@@ -12,6 +12,8 @@ declare var $:any;
 export class HomeComponent implements OnInit {
 
    varAplicacion: any = [];
+   varAplicacionExterna: any = [];
+   varAplicacionInterna: any = [];
 
   constructor(private api: ApiService, private app: AplicacionService) {}
 
@@ -24,6 +26,8 @@ export class HomeComponent implements OnInit {
      let response: any = this.api.ProcesarRespuesta(data);
      if (response.tipo == 0) {
        this.varAplicacion = response.result;
+       this.varAplicacionExterna = response.result.filter((x: any) => x.tipo_aplicacion_id == 1);
+       this.varAplicacionInterna = response.result.filter((x: any) => x.tipo_aplicacion_id == 2);
      }
    });
  }

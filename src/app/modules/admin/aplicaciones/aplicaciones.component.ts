@@ -64,7 +64,6 @@ export class AplicacionesComponent implements OnInit {
       let response: any = this.api.ProcesarRespuesta(data);
       if (response.tipo == 0) {
         this.varhistorial = response.result;
-        console.log(response.result);
       }
     });
 
