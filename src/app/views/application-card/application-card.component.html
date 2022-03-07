@@ -1,0 +1,8 @@
+<div class="application-card">
+    <div *ngFor="let item of array" class="box">
+        <div class="application-logo">
+            <a href={{item.url}} target="_blank"><img [src]="item.logo"></a>
+        </div>
+        <div class="application-name">{{item.nombre}}</div>
+    </div>
+</div>

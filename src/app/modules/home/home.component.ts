@@ -15,10 +15,17 @@ export class HomeComponent implements OnInit {
    varAplicacionExterna: any = [];
    varAplicacionInterna: any = [];
 
+   tab: any;
+
   constructor(private api: ApiService, private app: AplicacionService) {}
 
   ngOnInit(): void {
+     this.tab = 1;
      this.getAplicaciones();
+  }
+
+  selectTab(tab: any) {
+    this.tab = tab;
   }
 
   getAplicaciones() {

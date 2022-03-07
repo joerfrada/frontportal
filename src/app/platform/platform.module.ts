@@ -10,6 +10,7 @@ import { HomeComponent } from '../modules/home/home.component';
 import { AplicacionesComponent } from '../modules/admin/aplicaciones/aplicaciones.component';
 import { BreadcrumbComponent } from '../views/breadcrumb/breadcrumb.component';
 import { ModalComponent } from '../views/modal/modal.component';
+import { ApplicationCardComponent } from '../views/application-card/application-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalComponent } from '../views/modal/modal.component';
     HomeComponent,
     AplicacionesComponent,
     BreadcrumbComponent,
-    ModalComponent
+    ModalComponent,
+    ApplicationCardComponent
   ],
   imports: [
     CommonModule,

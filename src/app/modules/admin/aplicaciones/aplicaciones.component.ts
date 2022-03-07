@@ -32,6 +32,7 @@ export class AplicacionesComponent implements OnInit {
   model = new Model();
 
   varhistorial: any = [];
+  varhistorialTemp: any = [];
 
   modal: any;
 
@@ -55,6 +56,23 @@ export class AplicacionesComponent implements OnInit {
     });
   }
 
+  search(e: any) {
+    let filtro = e.target.value.trim().toLowerCase();
+    if (filtro.length == 0) {
+      this.varhistorial = this.varhistorialTemp;
+    }
+    else {
+      this.varhistorial = this.varhistorialTemp.filter((item: any) => {
+        if (item.nombre.toString().toLowerCase().indexOf(filtro) !== -1 ||
+            //item.descripcion.toString().toLowerCase().indexOf(filtro) !== -1) {
+            item.tipo_aplicacion.toString().toLowerCase().indexOf(filtro) !== -1) {
+             return true;
+        }
+        return false;
+      });
+    }
+  }
+
   getAplicaciones() {
     let json = {
       filtro: 0
@@ -64,6 +82,7 @@ export class AplicacionesComponent implements OnInit {
       let response: any = this.api.ProcesarRespuesta(data);
       if (response.tipo == 0) {
         this.varhistorial = response.result;
+        this.varhistorialTemp = response.result;
       }
     });
 
@@ -130,44 +149,65 @@ export class AplicacionesComponent implements OnInit {
 
     this.model.varAplicacion.tipo_aplicacion = Number(this.model.varAplicacion.tipo_aplicacion);
 
-    this.app.createAplicaciones(this.model.varAplicacion).subscribe(data => {
-      let response: any = this.api.ProcesarRespuesta(data);
-      if (response.tipo == 0) {
-        swal({
-          title: 'Aplicaciones',
-          text: response.mensaje,
-          allowOutsideClick: false,
-          showConfirmButton: true,
-          type: 'success'
-        }).then((result: any) => {
-          this.modal = false;
-          this.reload();
-        })
-      }
-    });
+    if (this.model.varAplicacion.tipo_aplicacion == 0) {
+      swal({
+        title: 'ERROR',
+        text: 'Debe seleccionar un campo Tipo de Aplicación',
+        type: 'error',
+        allowOutsideClick: false,
+        showConfirmButton: true,
+      });
+    }
+    else {
+      this.app.createAplicaciones(this.model.varAplicacion).subscribe(data => {
+        let response: any = this.api.ProcesarRespuesta(data);
+        if (response.tipo == 0) {
+          swal({
+            title: 'Aplicaciones',
+            text: response.mensaje,
+            allowOutsideClick: false,
+            showConfirmButton: true,
+            type: 'success'
+          }).then((result: any) => {
+            this.modal = false;
+            this.reload();
+          })
+        }
+      });
+    }
   }
 
   updateAplicacion() {
     this.model.varAplicacion.usuario_creador = this.currentUser.usuario;
     this.model.varAplicacion.usuario_modificador = this.currentUser.usuario;
 
-    console.log(this.model.varAplicacion);
+    this.model.varAplicacion.tipo_aplicacion = Number(this.model.varAplicacion.tipo_aplicacion);
 
-    this.app.updateAplicaciones(this.model.varAplicacion).subscribe(data => {
-      let response: any = this.api.ProcesarRespuesta(data);
-      if (response.tipo == 0) {
-        swal({
-          title: 'Aplicaciones',
-          text: response.mensaje,
-          allowOutsideClick: false,
-          showConfirmButton: true,
-          type: 'success'
-        }).then((result: any) => {
-          this.modal = false;
-          this.reload();
-        })
-      }
-    });
+    if (this.model.varAplicacion.tipo_aplicacion == 0) {
+      swal({
+        title: 'ERROR',
+        text: 'Debe seleccionar un campo Tipo de Aplicación',
+        type: 'error',
+        allowOutsideClick: false,
+        showConfirmButton: true
+      });
+    }
+    else {
+      this.app.updateAplicaciones(this.model.varAplicacion).subscribe(data => {
+        let response: any = this.api.ProcesarRespuesta(data);
+        if (response.tipo == 0) {
+          swal({
+            title: 'Aplicaciones',
+            text: response.mensaje,
+            allowOutsideClick: false,
+            showConfirmButton: true,
+            type: 'success'
+          }).then((result: any) => {
+            this.modal = false;
+            this.reload();
+          })
+        }
+      });
+    }
   }
-
 }

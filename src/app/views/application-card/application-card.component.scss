@@ -1,0 +1,29 @@
+.application-card {
+    background: white;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    display: grid;
+    padding: 10px;
+    grid-gap: 15px;
+    grid-template-columns: repeat(5, calc(95% / 5));
+}
+
+.box {
+    border-radius: 3px;
+    height: 320px;
+    background: rgb(236, 236, 236);
+    padding: 5px;
+
+    img {
+        width: 100%;
+        height: 280px;
+    }
+
+    .application-name {
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+    }
+}

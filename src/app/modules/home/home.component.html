@@ -1,24 +1,23 @@
 <app-breadcrumb [icon]="'fa-chart-line'" [title]="'Portal Apps'" [items]=""></app-breadcrumb>
 <div class="app-content-inner">
-    <div class="title-row">RED EXTERNA WEB</div>
-    <div class="application-content" *ngIf="varAplicacionExterna?.length != 0">
-        <div *ngFor="let item of varAplicacionExterna" class="application-card">
-            <div class="application-logo">
-                <a href={{item.url}} target="_blank"><img [src]="item.logo"></a>
+    <div class="app-content-tile">
+        <div class="flex-content">
+            <div class="tab-content">
+                <div class="flex-tabs">
+                    <ul>
+                        <li (click)="selectTab(1)" [ngClass]="{'active': tab === 1}">RED EXTERNA WEB</li>
+                        <li (click)="selectTab(2)" [ngClass]="{'active': tab === 2}">RED INTERNA FAC</li>
+                    </ul>
+                </div>
             </div>
-            <div class="application-name">{{item.nombre}}</div>
-        </div>
-    </div>
-
-    <div class="line-home-col"></div>
-
-    <div class="title-row">RED INTERNA FAC</div>
-    <div class="application-content" *ngIf="varAplicacionInterna?.length != 0">
-        <div *ngFor="let item of varAplicacionInterna" class="application-card">
-            <div class="application-logo">
-                <a href={{item.url}} target="_blank"><img [src]="item.logo"></a>
+            <div class="tabs-inner">
+                <div class="tabs-content" *ngIf="tab == 1">
+                    <application-card [array]="varAplicacionExterna"></application-card>
+                </div>
+                <div class="tabs-content" *ngIf="tab == 2">
+                    <application-card [array]="varAplicacionInterna"></application-card>
+                </div>
             </div>
-            <div class="application-name">{{item.nombre}}</div>
         </div>
     </div>
 </div>

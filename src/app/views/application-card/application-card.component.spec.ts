@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GradosComponent } from './grados.component';
+import { ApplicationCardComponent } from './application-card.component';
 
-describe('GradosComponent', () => {
-  let component: GradosComponent;
-  let fixture: ComponentFixture<GradosComponent>;
+describe('ApplicationCardComponent', () => {
+  let component: ApplicationCardComponent;
+  let fixture: ComponentFixture<ApplicationCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GradosComponent ]
+      declarations: [ ApplicationCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GradosComponent);
+    fixture = TestBed.createComponent(ApplicationCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

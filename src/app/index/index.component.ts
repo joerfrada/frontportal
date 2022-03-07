@@ -21,9 +21,10 @@ export class IndexComponent implements OnInit {
   }
 
   home() {
-    this.homeService.home({usuario: "usr_portal_log"}).subscribe(data => {
+    this.homeService.home({usuario: "admin"}).subscribe(data => {
       let response: any = this.api.ProcesarRespuesta(data);
       if (response.tipo === 0) {
+        console.log(response);
         localStorage.setItem("currentUsers", JSON.stringify(response.user.result));
         localStorage.setItem("auth-tokens", response.token);
         this.loader = true;
