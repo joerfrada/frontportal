@@ -11,7 +11,11 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggleSideBar: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  currentUser: any;
+
+  constructor() { 
+    this.currentUser = JSON.parse(localStorage.getItem("currentUsers") as any)[0];
+  }
 
   ngOnInit(): void {
   }
@@ -21,10 +25,10 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    localStorage.clear();
     setTimeout(() => {
-      localStorage.clear();
-      location.href = '/index';
-    }, 10);
+      location.href = '/login';
+    }, 100);
   }
 
 }

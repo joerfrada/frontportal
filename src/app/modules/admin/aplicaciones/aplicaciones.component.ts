@@ -106,8 +106,6 @@ export class AplicacionesComponent implements OnInit {
     this.model.title = "Actualizar Aplicación";
     this.model.tipo = 'U';
 
-    console.log(data);
-
     this.model.varAplicacion.aplicacion_id = data.aplicacion_id;
     this.model.varAplicacion.nombre = data.nombre;
     this.model.varAplicacion.descripcion = data.descripcion;

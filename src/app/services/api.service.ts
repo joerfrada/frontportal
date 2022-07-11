@@ -9,8 +9,9 @@ declare var swal:any;
 })
 export class ApiService {
 
-  // private baseurl = "http://localhost:8001/api/";
-  private baseurl = "http://localhost:85/api/";
+  private baseurl = "http://localhost:8001/api/";
+  // private baseurl = "http://localhost:85/api/";
+  // private baseurl = "http://172.21.10.87:85/api/";
 
   constructor() { }
 

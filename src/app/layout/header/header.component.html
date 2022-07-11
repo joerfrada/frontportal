@@ -5,6 +5,9 @@
     <div class="app-header-toggle pointer noselect" (click)="toggle()"></div>
     <ul class="app-nav">
         <li>
+            <span class="app-nav-user">{{currentUser.usuario}}</span>
+        </li>
+        <li>            
             <div class="app-nav-item pointer noselect" (click)="logout()">
                 <i class="fa fa-sign-out-alt fa-lg"></i>
             </div>
