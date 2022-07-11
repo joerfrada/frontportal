@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('currentUsers');
+    localStorage.removeItem('auth-tokens');
     setTimeout(() => {
       location.href = '/login';
     }, 100);
