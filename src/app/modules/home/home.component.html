@@ -1,0 +1,23 @@
+<app-breadcrumb [icon]="'fa-chart-line'" [title]="'Portal Apps'" [items]=""></app-breadcrumb>
+<div class="app-content-inner">
+    <div class="app-content-tile">
+        <div class="flex-content">
+            <div class="tab-content">
+                <div class="flex-tabs">
+                    <ul>
+                        <li (click)="selectTab(1)" [ngClass]="{'active': tab === 1}">RED EXTERNA WEB</li>
+                        <li (click)="selectTab(2)" [ngClass]="{'active': tab === 2}">RED INTERNA FAC</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tabs-inner">
+                <div class="tabs-content" *ngIf="tab == 1">
+                    <application-card [array]="varAplicacionExterna"></application-card>
+                </div>
+                <div class="tabs-content" *ngIf="tab == 2">
+                    <application-card [array]="varAplicacionInterna"></application-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
