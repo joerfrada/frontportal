@@ -10,6 +10,7 @@
                     </ul>
                 </div>
             </div>
+            <div *ngIf="tab == 2" class="app-msg">** Recuerde que para poder acceder a las aplicaciones debe estar dentro de la Red Institucional **</div>
             <div class="tabs-inner">
                 <div class="tabs-content" *ngIf="tab == 1">
                     <application-card [array]="varAplicacionExterna"></application-card>

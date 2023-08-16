@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    debugger
     this.titleLogin = "Iniciando sesión... Espere";
     //this.usuario = "admin";
     //this.password = "demo";

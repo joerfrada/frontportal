@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit {
   logout() {
     setTimeout(() => {
       localStorage.clear();
-      location.href = '/';
+      // location.href = '/';
+      location.href = 'https://apps.fac.mil.co/apiportal/logout';
     }, 10);
   }
 

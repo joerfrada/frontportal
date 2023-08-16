@@ -18,7 +18,8 @@ export class Model {
     url: "",
     logo: "../../../../assets/images/fileupload.jpg",
     saml: false,
-    activo: true
+    activo: true,
+    usuario: ""
   }
 }
 
@@ -41,8 +42,7 @@ export class AplicacionComponent implements OnInit {
 
   constructor(private router: Router, private api: ApiService, private app: AplicacionService) {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser") as any)[0];
-    this.model.varAplicacion.usuario_creador = this.currentUser.usuario;
-    this.model.varAplicacion.usuario_modificador = this.currentUser.usuario;
+    this.model.varAplicacion.usuario = this.currentUser.usuario;
    }
 
   ngOnInit(): void {
@@ -142,9 +142,7 @@ export class AplicacionComponent implements OnInit {
   }
 
   saveAplicacion() {
-    this.model.varAplicacion.usuario_creador = this.currentUser.usuario;
-    this.model.varAplicacion.usuario_modificador = this.currentUser.usuario;
-
+    this.model.varAplicacion.usuario = this.currentUser.usuario;
     this.model.varAplicacion.tipo_aplicacion = Number(this.model.varAplicacion.tipo_aplicacion);
 
     if (this.model.varAplicacion.tipo_aplicacion == 0) {
@@ -176,8 +174,7 @@ export class AplicacionComponent implements OnInit {
   }
 
   updateAplicacion() {
-    this.model.varAplicacion.usuario_creador = this.currentUser.usuario;
-    this.model.varAplicacion.usuario_modificador = this.currentUser.usuario;
+    this.model.varAplicacion.usuario = this.currentUser.usuario;
 
     this.model.varAplicacion.tipo_aplicacion = Number(this.model.varAplicacion.tipo_aplicacion);
 
